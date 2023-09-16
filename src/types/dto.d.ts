@@ -1,3 +1,4 @@
+// data transfer objects
 export interface ProductCreationDto {
     name: string;
     quantity: number;

@@ -18,6 +18,7 @@ productRouter.post('/:id/update_quantity', updateProductQuantity);
 
 // route handlers
 
+// stores a product in database
 async function createProduct(req: Request, res: Response) {
 
     const result = productCreationValidator.safeParse(req.body);
@@ -35,7 +36,7 @@ async function createProduct(req: Request, res: Response) {
 
 }
 
-
+// fetch all the stored products from database
 async function getProducts(req: Request, res: Response) {
 
     const response = await productService.getProducts();
@@ -45,6 +46,7 @@ async function getProducts(req: Request, res: Response) {
 
 }
 
+// fetch a single product
 async function getProduct(req: Request, res: Response) {
 
     const productId = req.params.id;
@@ -69,7 +71,7 @@ async function getProduct(req: Request, res: Response) {
 
 }
 
-
+// delete a single product
 async function deleteProduct(req: Request, res: Response) {
 
     const productId = req.params.id;
@@ -92,7 +94,7 @@ async function deleteProduct(req: Request, res: Response) {
 
 }
 
-
+// increase / decrease product quantity by given amount
 async function updateProductQuantity(req: Request, res: Response) {
 
     const productId = req.params.id;
