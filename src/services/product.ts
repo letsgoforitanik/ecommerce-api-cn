@@ -71,7 +71,7 @@ export async function deleteProduct(productId: string): Promise<Result<null>> {
 }
 
 
-export async function updateProduct(productId: string, quantity: number): Promise<Result<ProductDto>> {
+export async function updateProductQuantity(productId: string, quantity: number): Promise<Result<ProductDto>> {
 
     const product = await Product.findById(productId);
 

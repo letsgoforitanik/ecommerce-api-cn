@@ -107,7 +107,7 @@ async function updateProductQuantity(req: Request, res: Response) {
 
     const data = result.data;
 
-    const response = await productService.updateProduct(data.id, data.number);
+    const response = await productService.updateProductQuantity(data.id, data.number);
 
     if (!response.success) {
         res.sendErrors(404, response.errors[0].message);

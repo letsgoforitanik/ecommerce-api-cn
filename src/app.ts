@@ -4,12 +4,16 @@ import bodyParser from "body-parser";
 
 import { environment, initializeDb } from "@/config";
 import { controllerRouter } from "@/controllers";
-import { extendExpress } from "@/helpers";
+import { extendExpress, trycatchify } from "@/helpers";
+import { errorHandler } from "@/middlewares";
+
 
 function configureApp(app: Express) {
     app.use(bodyParser.json());
     app.use(controllerRouter);
+    app.use(errorHandler);
 }
+
 
 async function main() {
     const { port, nodeEnv } = environment;
@@ -20,6 +24,8 @@ async function main() {
     const app = express();
 
     configureApp(app);
+
+    trycatchify(app);
 
     await initializeDb();
     console.log(`Database connection is made successfully`);
