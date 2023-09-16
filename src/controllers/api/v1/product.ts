@@ -18,6 +18,8 @@ productRouter.post('/:id/update_quantity', updateProductQuantity);
 
 // route handlers
 
+
+
 // stores a product in database
 async function createProduct(req: Request, res: Response) {
 
